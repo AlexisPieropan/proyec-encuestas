@@ -15,6 +15,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListProductsComponent } from './components/list-products/list-products.component';
 import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
+import { SurveyComponent } from './components/survey/survey.component';
+import { LoginComponent } from './components/login/login.component';
+import { MatFormFieldModule } from '@angular/material';
+// import {MatInputModule} from '@angular/material/input';
+// import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -23,7 +28,9 @@ import { ProgressBarComponent } from './shared/progress-bar/progress-bar.compone
     NavbarComponent,
     ListProductsComponent,
     AddEditProductComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    SurveyComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +42,10 @@ import { ProgressBarComponent } from './shared/progress-bar/progress-bar.compone
       timeOut: 10000,
       positionClass: 'toast-bottom-right'
     }), // ToastrModule added
+    MatFormFieldModule,
+    // MatInputModule,
+    // MatButtonModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

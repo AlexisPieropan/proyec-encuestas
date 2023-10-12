@@ -1,10 +1,10 @@
 <app-progress-bar *ngIf="loading"></app-progress-bar>
 <div *ngIf="!loading" class="card container">
+  <span><STRONg>ACA VA LA ENCUESTA ELEGIDA EN MAIN</STRONg></span>
     <div class="title card-header">
-        <h4>Listado de Encuestas</h4>
-        <button type="button" class="btn btn-primary" routerLink="/add">Crear encuesta</button>
+        <h4>Encuesta</h4>
+        <!-- <button type="button" class="btn btn-primary" routerLink="/add">Crear encuesta</button> -->
     </div>
-
     <table *ngIf="listProducts.length > 0" class="table table-hover">
         <thead>
           <tr>
@@ -30,4 +30,3 @@
       </table>
       <h5 *ngIf="listProducts.length == 0">No hay productos para mostrar</h5>
 </div>
-

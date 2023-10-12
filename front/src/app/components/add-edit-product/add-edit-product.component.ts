@@ -70,7 +70,7 @@ export class AddEditProductComponent implements OnInit {
       this._productService.updateProduct(this.id, product).subscribe(() => {
         this.toastr.info(`El producto ${product.name} fue actualizado con exito`, 'Producto actualizado');
         this.loading = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/main']);
       })
 
     } else {
@@ -78,7 +78,7 @@ export class AddEditProductComponent implements OnInit {
       this._productService.saveProduct(product).subscribe(() => {
         this.toastr.success(`El producto ${product.name} fue registrado con exito`, 'Producto registrado');
         this.loading = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/main']);
       })
     }
 
