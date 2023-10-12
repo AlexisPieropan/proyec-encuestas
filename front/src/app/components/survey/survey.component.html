@@ -1,32 +1,48 @@
-<app-progress-bar *ngIf="loading"></app-progress-bar>
-<div *ngIf="!loading" class="card container">
-  <span><STRONg>ACA VA LA ENCUESTA ELEGIDA EN MAIN</STRONg></span>
-    <div class="title card-header">
-        <h4>Encuesta</h4>
-        <!-- <button type="button" class="btn btn-primary" routerLink="/add">Crear encuesta</button> -->
+<!-- <app-progress-bar *ngIf="loading"></app-progress-bar> -->
+<div class="card container">
+  <h4 class="card-header">Encuesta de Turismo</h4>
+  <form class="card-body" (ngSubmit)="submitEncuesta()">
+    
+    <div class="md-form form-group mt-5">
+      <label for="hospedaje">¿Dónde se hospedó durante su viaje?</label>
+      <input type="text" id="hospedaje" class="form-control" name="hospedaje" [(ngModel)]="encuestaRespuestas.hospedaje" />
     </div>
-    <table *ngIf="listProducts.length > 0" class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Stock</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of listProducts" class="table-active card-body ">
-            <td>{{ item.name }}</td>
-            <td>{{ item.description }}</td>
-            <td>{{ item.price | currency }}</td>
-            <td>{{ item.stock }}</td>
-            <td>
-                <button routerLink="/edit/{{ item.id }}" type="button" class="btn btn-outline-light btn-sm">Edit</button>
-                <button (click)="deleteProduct(item.id!)" type="button" class="btn btn-outline-danger btn-sm ms-2">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <h5 *ngIf="listProducts.length == 0">No hay productos para mostrar</h5>
+
+    <div>
+      <br>
+      <label>¿Cuánto tiempo planeó su estadía?</label>
+      <select class="form-control" name="tiempoEstadia" [(ngModel)]="encuestaRespuestas.tiempoEstadia">
+        <option value="1-3 días">1-3 días</option>
+        <option value="4-7 días">4-7 días</option>
+        <option value="Más de una semana">Más de una semana</option>
+      </select>
+    </div>
+    <br>
+
+    <div>
+      <label>¿Participó en alguna excursión?</label>
+      <div>
+        <input type="checkbox" name="excursiones1" value="Excursión a la playa" [(ngModel)]="encuestaRespuestas.excursiones1" /> Excursión a la playa
+      </div>
+      <div>
+        <input type="checkbox" name="excursiones" value="Excursión a montañas" [(ngModel)]="encuestaRespuestas.excursiones" /> Excursión a montañas
+      </div>
+    </div>
+    <br>
+
+    <div>
+      <label for="comentarios">Comentarios adicionales</label>
+      <div>
+        <textarea id="comentarios" name="comentarios" [(ngModel)]="encuestaRespuestas.comentarios"></textarea>
+      </div>
+    </div>
+    <br>
+
+    <div>
+      <button type="button" class="btn btn-outline-light" (click)="limpiarCampos()">Limpiar</button>
+      <button type="submit" class="btn btn-primary">Enviar Encuesta</button>
+    </div>
+    <br>
+
+  </form>
 </div>

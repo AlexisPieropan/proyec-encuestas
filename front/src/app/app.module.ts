@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // Modulos
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -18,6 +18,7 @@ import { ProgressBarComponent } from './shared/progress-bar/progress-bar.compone
 import { SurveyComponent } from './components/survey/survey.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatFormFieldModule } from '@angular/material';
+import { FooterComponent } from './components/footer/footer.component';
 // import {MatInputModule} from '@angular/material/input';
 // import {MatButtonModule} from '@angular/material/button';
 
@@ -31,6 +32,7 @@ import { MatFormFieldModule } from '@angular/material';
     ProgressBarComponent,
     SurveyComponent,
     LoginComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { MatFormFieldModule } from '@angular/material';
       positionClass: 'toast-bottom-right'
     }), // ToastrModule added
     MatFormFieldModule,
+    FormsModule,
     // MatInputModule,
     // MatButtonModule
     

@@ -1,69 +1,40 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-survey',
-//   templateUrl: './survey.component.html',
-//   styleUrls: ['./survey.component.css']
-// })
-// export class SurveyComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Product } from 'src/app/interfaces/product';
-import { ProductService } from 'src/app/services/product.service';
+
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-survey',
   templateUrl: './survey.component.html',
   styleUrls: ['./survey.component.css']
 })
-export class SurveyComponent implements OnInit {
-  listProducts: Product[] = []
-  loading: boolean = false;
+export class SurveyComponent {
+  // loading: boolean = false;
+  // setTimeout(()=>{
+  //     loading = false;
+  // },1000)
 
-  constructor(private _productService: ProductService, private toastr: ToastrService) { }
+  encuestaRespuestas: any = {
+    hospedaje: '',
+    tiempoEstadia: '',
+    excursiones: [],
+    comentarios: ''
+  };
+  constructor(private toastr: ToastrService) {}
 
-  ngOnInit(): void {
-    this.getListProducts();
+  submitEncuesta() {
+    // ver respuesta en objeto
+    console.log('Respuestas enviadas:', this.encuestaRespuestas);
+    this.toastr.success('Encuesta enviada! Muchas gracias.');
   }
 
-  getListProducts() {
-    this.loading = true;
-
-    this._productService.getListProducts().subscribe((data: Product[]) => {
-      this.listProducts = data;
-      this.loading = false;
-    })
-  }
-
-  deleteProduct(id: number) {
-    this.loading = true;
-    this._productService.deleteProduct(id).subscribe(() => {
-      this.getListProducts();
-      this.toastr.warning('El producto fue eliminado con exito', 'Producto eliminado');
-    })
+  limpiarCampos() {
+    this.encuestaRespuestas = {
+      hospedaje: '',
+      tiempoEstadia: '',
+      excursiones: [],
+      comentarios: ''
+    };
+    this.toastr.info('Campos resetados');
   }
 }
