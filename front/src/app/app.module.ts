@@ -12,27 +12,27 @@ import { ToastrModule } from 'ngx-toastr';
 
 // Componentes
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ListProductsComponent } from './components/list-products/list-products.component';
-import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
 import { SurveyComponent } from './components/survey/survey.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatFormFieldModule } from '@angular/material';
 import { FooterComponent } from './components/footer/footer.component';
-// import {MatInputModule} from '@angular/material/input';
-// import {MatButtonModule} from '@angular/material/button';
+import { AddEditEncuestaComponent } from './components/add-edit-encuesta/add-edit-encuesta.component';
+import { ListEncuestaComponent } from './components/list-encuesta/list-encuesta.component';
+// import { AddEditPreguntaComponent } from './components/add-edit-pregunta/add-edit-pregunta.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ListProductsComponent,
-    AddEditProductComponent,
     ProgressBarComponent,
     SurveyComponent,
     LoginComponent,
     FooterComponent,
+    AddEditEncuestaComponent,
+    ListEncuestaComponent,
+    // AddEditPreguntaComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,8 +46,6 @@ import { FooterComponent } from './components/footer/footer.component';
     }), // ToastrModule added
     MatFormFieldModule,
     FormsModule,
-    // MatInputModule,
-    // MatButtonModule
     
   ],
   providers: [],
