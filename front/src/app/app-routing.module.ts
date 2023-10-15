@@ -8,11 +8,11 @@ import { SurveyComponent } from './components/survey/survey.component';
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: 'main', component: ListProductsComponent },
-  { path: 'add', component: AddEditProductComponent },
-  { path: 'edit/:id', component: AddEditProductComponent },
-  { path: 'survey', component: SurveyComponent },
-  { path: '', component: LoginComponent },
+  { path: 'main', component: ListProductsComponent, data: { showHeader: true, showFooter: true }  },
+  { path: 'add', component: AddEditProductComponent, data: { showHeader: true, showFooter: true }   },
+  { path: 'edit/:id', component: AddEditProductComponent, data: { showHeader: true, showFooter: true }   },
+  { path: 'survey', component: SurveyComponent, data: { showHeader: true, showFooter: true }   },
+  { path: '', component: LoginComponent, data: { showHeader: true, showFooter: false } },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
